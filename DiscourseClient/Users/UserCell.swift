@@ -8,21 +8,31 @@
 
 import UIKit
 
-class UserCell: UITableViewCell {
+class UserCell: UICollectionViewCell {
+    @IBOutlet var userImage: UIImageView!
+    @IBOutlet var userName: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
     var viewModel: UserCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
             viewModel.viewDelegate = self
+            userName?.text = viewModel.textLabelText
+            userImage?.image = viewModel.userImage
+            userImage.layer.masksToBounds = true
+            userImage.layer.cornerRadius = 40
             
-            textLabel?.text = viewModel.textLabelText
-            imageView?.image = viewModel.userImage
         }
     }
 }
 
 extension UserCell: UserCellViewModelViewDelegate {
     func userImageFetched() {
-        imageView?.image = viewModel?.userImage
+        userImage?.image = viewModel?.userImage
         setNeedsLayout()
     }
 }
