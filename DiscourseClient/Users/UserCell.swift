@@ -22,6 +22,7 @@ class UserCell: UICollectionViewCell {
             guard let viewModel = viewModel else { return }
             viewModel.viewDelegate = self
             userName?.text = viewModel.textLabelText
+            userName?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
             userImage?.image = viewModel.userImage
             userImage.layer.masksToBounds = true
             userImage.layer.cornerRadius = 40

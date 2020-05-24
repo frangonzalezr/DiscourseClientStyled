@@ -69,6 +69,8 @@
 		62D577B7242FC76300268ADC /* UpdateUserNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D577B6242FC76300268ADC /* UpdateUserNameResponse.swift */; };
 		A12846482479945900067E30 /* AjustesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12846472479945900067E30 /* AjustesCoordinator.swift */; };
 		A14244252479D10700E1A01E /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A14244242479C10E00E1A01E /* UserCell.xib */; };
+		A1D85565247AD472001AFBEE /* WelcomeTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D85563247AD472001AFBEE /* WelcomeTopicCell.swift */; };
+		A1D85566247AD472001AFBEE /* WelcomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D85564247AD472001AFBEE /* WelcomeTopicCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +138,8 @@
 		62D577B6242FC76300268ADC /* UpdateUserNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameResponse.swift; sourceTree = "<group>"; };
 		A12846472479945900067E30 /* AjustesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesCoordinator.swift; sourceTree = "<group>"; };
 		A14244242479C10E00E1A01E /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		A1D85563247AD472001AFBEE /* WelcomeTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTopicCell.swift; sourceTree = "<group>"; };
+		A1D85564247AD472001AFBEE /* WelcomeTopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeTopicCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +278,8 @@
 				62015CB623EF04C200673EBB /* TopicCellViewModel.swift */,
 				62015CB823EF084C00673EBB /* TopicCell.swift */,
 				62015CB923EF084C00673EBB /* TopicCell.xib */,
+				A1D85563247AD472001AFBEE /* WelcomeTopicCell.swift */,
+				A1D85564247AD472001AFBEE /* WelcomeTopicCell.xib */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -405,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D85566247AD472001AFBEE /* WelcomeTopicCell.xib in Resources */,
 				A14244252479D10700E1A01E /* UserCell.xib in Resources */,
 				627DC5B523E5F581006D8615 /* LaunchScreen.storyboard in Resources */,
 				627DC5B223E5F581006D8615 /* Assets.xcassets in Resources */,
@@ -464,6 +471,7 @@
 				62015CD623EF21F600673EBB /* AddTopicDataManager.swift in Sources */,
 				627DC5D923E60727006D8615 /* APIRequest.swift in Sources */,
 				626F76FB242FB7E3006610C8 /* UserRequest.swift in Sources */,
+				A1D85565247AD472001AFBEE /* WelcomeTopicCell.swift in Sources */,
 				62015CD023EF1F6800673EBB /* AddTopicViewController.swift in Sources */,
 				626F76E3242FA65A006610C8 /* CategoriesResponse.swift in Sources */,
 				626F76FD242FB834006610C8 /* UserResponse.swift in Sources */,

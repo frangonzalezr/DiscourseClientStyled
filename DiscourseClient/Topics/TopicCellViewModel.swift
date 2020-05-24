@@ -12,9 +12,11 @@ import Foundation
 class TopicCellViewModel {
     let topic: Topic
     var textLabelText: String?
+    var subTitletextLabelText: String?
     
     init(topic: Topic) {
         self.topic = topic
         textLabelText = topic.title
+        subTitletextLabelText = topic.slug
     }
 }

@@ -73,8 +73,8 @@ class AppCoordinator: Coordinator {
         tabBarController.tabBar.items?[1].image = UIImage(named: "usuariosUnselected")?.withRenderingMode(.alwaysOriginal)
         tabBarController.tabBar.items?[1].selectedImage = UIImage(named: "usuarios")?.withRenderingMode(.alwaysOriginal)
         
-        tabBarController.tabBar.items?[2].image = UIImage(named: "mensajesUnselected")?.withRenderingMode(.alwaysOriginal)
-        tabBarController.tabBar.items?[2].selectedImage = UIImage(named: "mensajes")?.withRenderingMode(.alwaysOriginal)
+        tabBarController.tabBar.items?[2].image = UIImage(named: "MensajesDeseleccionado")?.withRenderingMode(.alwaysOriginal)
+        tabBarController.tabBar.items?[2].selectedImage = UIImage(named: "MensajesSeleccionado")?.withRenderingMode(.alwaysOriginal)
         
         tabBarController.tabBar.items?[3].image = UIImage(named: "ajustesUnselected")?.withRenderingMode(.alwaysOriginal)
         tabBarController.tabBar.items?[3].selectedImage = UIImage(named: "ajustes")?.withRenderingMode(.alwaysOriginal)

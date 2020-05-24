@@ -22,7 +22,7 @@ class UsersViewController: UIViewController {
         collection.delegate = self
         collection.register(UINib(nibName: "UserCell", bundle: nil), forCellWithReuseIdentifier: "UserCell")
         if let flowLayout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
-        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        flowLayout.sectionInset = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
         flowLayout.minimumInteritemSpacing = 20.5
         flowLayout.itemSize = CGSize(width: 94, height: 124)
         flowLayout.estimatedItemSize = .zero
@@ -45,7 +45,6 @@ class UsersViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
-
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -53,17 +52,39 @@ class UsersViewController: UIViewController {
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icoAdd")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(plusButtonTapped))
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icoSearch")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(searchButtonTapped))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
+    @objc func plusButtonTapped() {
+        
+        // LO IMPLEMENTARE
+//        viewModel.plusButtonTapped()
+    }
+    
+        @objc func searchButtonTapped() {
+            // LO IMPLEMENTARE
+    //        viewModel.searchButtonTapped()
+        }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewWasLoaded()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     fileprivate func showErrorFetchingUsers() {
         showAlert("Error fetching users\nPlease try again later")
     }
 }
+
+
+
 
 extension UsersViewController: UICollectionViewDataSource {
     
@@ -83,7 +104,7 @@ extension UsersViewController: UICollectionViewDataSource {
     }
     
 
-extension UsersViewController: UICollectionViewDelegate  {
+extension UsersViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         viewModel.didSelectRow(at: indexPath)
