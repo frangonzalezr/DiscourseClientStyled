@@ -26,7 +26,8 @@ class TopicsViewModel {
     weak var viewDelegate: TopicsViewDelegate?
     let topicsDataManager: TopicsDataManager
     var topicViewModels: [TopicCellViewModel] = []
-
+    // CARGO TAMBIEN LOS USUARIOS
+    public var userViewModels: [UserCellViewModel] = []
     init(topicsDataManager: TopicsDataManager) {
         self.topicsDataManager = topicsDataManager
     }
@@ -36,7 +37,9 @@ class TopicsViewModel {
             switch result {
             case .success(let response):
                 guard let response = response else { return }
-
+                    // CARGO TAMBIEN LOS USUARIOS
+                self?.userViewModels = response.users.map({ UserCellViewModel(user: $0) })
+                print("\(String(describing: self?.userViewModels[5].user.avatarTemplate))")
                 self?.topicViewModels = response.topicList.topics.map({ TopicCellViewModel(topic: $0) })
                 self?.viewDelegate?.topicsFetched()
             case .failure:
