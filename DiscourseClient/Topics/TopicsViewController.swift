@@ -128,7 +128,6 @@ extension TopicsViewController: UITableViewDelegate {
 extension TopicsViewController: TopicsViewDelegate {
     func topicsFetched() {
         tableView.reloadData()
-
     }
     
     func errorFetchingTopics() {

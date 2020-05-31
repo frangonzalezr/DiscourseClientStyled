@@ -34,6 +34,7 @@ class TopicCell: UITableViewCell {
     var viewModel: TopicCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
+            viewModel.viewDelegate = self
             titleLabel.text = viewModel.textLabelText
             commentsLabel.text = "\(viewModel.topic.postsCount)"
             postersLabel.text = "\(viewModel.topic.posters.count)"
@@ -54,7 +55,7 @@ class TopicCell: UITableViewCell {
 }
 
 extension TopicCell: TopicCellViewModelViewDelegate {
-    func userImageFetched() {
+    func posterImageFetched() {
         userImage?.image = viewModel?.lastPosterImage
         setNeedsLayout()
     }

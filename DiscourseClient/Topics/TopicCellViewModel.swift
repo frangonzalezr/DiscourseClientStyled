@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol TopicCellViewModelViewDelegate: class {
-    func userImageFetched()
+    func posterImageFetched()
 }
 
 class TopicCellViewModel {
@@ -30,7 +30,7 @@ class TopicCellViewModel {
             if let url = URL(string: imageStringURL), let data = try? Data(contentsOf: url) {
                 self?.lastPosterImage = UIImage(data: data)
                 DispatchQueue.main.async {
-                    self?.viewDelegate?.userImageFetched()
+                    self?.viewDelegate?.posterImageFetched()
                 }
             }
         }
