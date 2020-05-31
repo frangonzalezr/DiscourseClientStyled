@@ -138,6 +138,7 @@
 		62D577B6242FC76300268ADC /* UpdateUserNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserNameResponse.swift; sourceTree = "<group>"; };
 		A12846472479945900067E30 /* AjustesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesCoordinator.swift; sourceTree = "<group>"; };
 		A14244242479C10E00E1A01E /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		A160A06C248416260066EB27 /* DiscourseClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiscourseClient.entitlements; sourceTree = "<group>"; };
 		A1D85563247AD472001AFBEE /* WelcomeTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTopicCell.swift; sourceTree = "<group>"; };
 		A1D85564247AD472001AFBEE /* WelcomeTopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeTopicCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +237,7 @@
 		627DC5A723E5F580006D8615 /* DiscourseClient */ = {
 			isa = PBXGroup;
 			children = (
+				A160A06C248416260066EB27 /* DiscourseClient.entitlements */,
 				62015CC923EF19E600673EBB /* Extensions */,
 				627DC5C923E603A9006D8615 /* Model */,
 				627DC5C623E6036F006D8615 /* DataManager */,
@@ -620,15 +622,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DiscourseClient/DiscourseClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6PBG234246;
+				DEVELOPMENT_TEAM = 2D83S7NGNP;
 				INFOPLIST_FILE = DiscourseClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.irakai.DiscourseClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.familyoptica.DiscourseClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -638,8 +642,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DiscourseClient/DiscourseClient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6PBG234246;
+				DEVELOPMENT_TEAM = 2TT6289TL7;
 				INFOPLIST_FILE = DiscourseClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -647,6 +652,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.irakai.DiscourseClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
