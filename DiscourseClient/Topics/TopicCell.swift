@@ -56,9 +56,17 @@ class TopicCell: UITableViewCell {
 extension TopicCell: TopicCellViewModelViewDelegate {
     func posterImageFetched() {
         userImage?.image = viewModel?.lastPosterImage
-        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.curveEaseInOut], animations: {  [weak self] in
+        userImage.transform = userImage.transform.scaledBy(x: 0.01, y: 0.01)
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.autoreverse, .curveEaseInOut], animations: {  [weak self] in
             guard let self = self else { return }
+            var number = 0
+            repeat {
+                self.userImage.transform = self.userImage.transform.rotated(by: .pi)
+                number += 1
+            } while number < 20
             self.userImage.alpha = 1.0
+            self.userImage.transform = self.userImage.transform.scaledBy(x: 100, y: 100)
         })
+        
     }
 }

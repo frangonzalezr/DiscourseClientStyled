@@ -12,6 +12,12 @@ class UsersViewController: UIViewController {
     
     let viewModel: UsersViewModel
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Actualizando")
+        refreshControl.addTarget(self, action: #selector(refreshControlPulled), for: .valueChanged)
+        return refreshControl
+    }()
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -29,6 +35,7 @@ class UsersViewController: UIViewController {
         flowLayout.minimumLineSpacing = 18
         collection.setCollectionViewLayout(flowLayout, animated: true)
         }
+        collection.refreshControl = refreshControl
         return collection
     }()
 
@@ -60,6 +67,15 @@ class UsersViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
+    
+    @objc func refreshControlPulled() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            self?.refreshControl.endRefreshing()
+            self?.viewModel.viewWasLoaded()
+            self?.collectionView.reloadData()
+        }
+    }
+    
     @objc func plusButtonTapped() {
         
         // LO IMPLEMENTARE
@@ -87,6 +103,11 @@ class UsersViewController: UIViewController {
 
 
 extension UsersViewController: UICollectionViewDataSource {
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows(in: section)

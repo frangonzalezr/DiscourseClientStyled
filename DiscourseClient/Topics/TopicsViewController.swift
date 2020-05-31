@@ -18,11 +18,19 @@ class TopicsViewController: UIViewController {
         table.delegate = self
         table.register(UINib(nibName: "TopicCell", bundle: nil), forCellReuseIdentifier: "TopicCell")
         table.register(UINib(nibName: "WelcomeTopicCell", bundle: nil), forCellReuseIdentifier: "WelcomeTopicCell")
+        table.refreshControl = refreshControl
         return table
     }()
 
     let viewModel: TopicsViewModel
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Actualizando")
+        refreshControl.addTarget(self, action: #selector(refreshControlPulled), for: .valueChanged)
+        return refreshControl
+    }()
+    
     init(viewModel: TopicsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -61,6 +69,14 @@ class TopicsViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
 
+    
+    @objc func refreshControlPulled() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            self?.refreshControl.endRefreshing()
+            self?.viewModel.viewWasLoaded()
+            self?.tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewWasLoaded()

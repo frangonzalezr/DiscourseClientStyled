@@ -23,7 +23,12 @@ class TopicCellViewModel {
     init(topic: Topic) {
         self.topic = topic
         textLabelText = topic.title
-        subTitletextLabelText = topic.slug
+        if topic.title.contains("Welcome") {
+            subTitletextLabelText = topic.excerpt
+        } else {
+            subTitletextLabelText = topic.slug
+        }
+        
         var imageStringURL = "https://mdiscourse.keepcoding.io"
         imageStringURL.append(topic.lastPosterUsername.replacingOccurrences(of: "{size}", with: "100"))
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in

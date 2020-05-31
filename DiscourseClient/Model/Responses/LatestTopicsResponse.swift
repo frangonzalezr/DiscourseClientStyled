@@ -114,6 +114,8 @@ struct Topic: Codable {
     let categoryID: Int
 
     let pinnedGlobally: Bool
+    
+    let excerpt: String?
 
 //    let bookmarkedPostNumbers: [Int]?
 
@@ -184,6 +186,8 @@ struct Topic: Codable {
         case categoryID = "category_id"
 
         case pinnedGlobally = "pinned_globally"
+        
+        case excerpt
 
 //        case bookmarkedPostNumbers = "bookmarked_post_numbers"
 
