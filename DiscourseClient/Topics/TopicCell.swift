@@ -49,7 +49,6 @@ class TopicCell: UITableViewCell {
             dateFormatter.dateFormat = outputFormat
             let outputStringDate = dateFormatter.string(from: date)
             dateLabel.text = outputStringDate
-            userImage.image = viewModel.lastPosterImage
         }
     }
 }
@@ -57,6 +56,9 @@ class TopicCell: UITableViewCell {
 extension TopicCell: TopicCellViewModelViewDelegate {
     func posterImageFetched() {
         userImage?.image = viewModel?.lastPosterImage
-        setNeedsLayout()
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.curveEaseInOut], animations: {  [weak self] in
+            guard let self = self else { return }
+            self.userImage.alpha = 1.0
+        })
     }
 }

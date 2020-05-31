@@ -34,6 +34,9 @@ class UserCell: UICollectionViewCell {
 extension UserCell: UserCellViewModelViewDelegate {
     func userImageFetched() {
         userImage?.image = viewModel?.userImage
-        setNeedsLayout()
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.curveEaseInOut], animations: {  [weak self] in
+            guard let self = self else { return }
+            self.userImage.alpha = 1.0
+        })
     }
 }
