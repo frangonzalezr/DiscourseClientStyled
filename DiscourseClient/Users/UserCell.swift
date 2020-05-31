@@ -26,6 +26,7 @@ class UserCell: UICollectionViewCell {
             userImage?.image = viewModel.userImage
             userImage.layer.masksToBounds = true
             userImage.layer.cornerRadius = 40
+            userImageFetched()
         }
     }
 }
