@@ -37,10 +37,15 @@ class TopicsViewModel {
             switch result {
             case .success(let response):
                 guard let response = response else { return }
-                    // CARGO TAMBIEN LOS USUARIOS
+                // CARGO TAMBIEN LOS USUARIOS
                 self?.userViewModels = response.users.map({ UserCellViewModel(user: $0) })
-                print("\(String(describing: self?.userViewModels[5].user.avatarTemplate))")
-                self?.topicViewModels = response.topicList.topics.map({ TopicCellViewModel(topic: $0) })
+                // VOY A CAMBIAR EL STRING DE POSTUSERNAME POR SU AVATAR TEMPLATE
+                for var topic in response.topicList.topics {
+                    let lastPoster = topic.lastPosterUsername
+                    let posterAvatar = self?.userViewModels.filter {$0.user.username == lastPoster}
+                    topic.lastPosterUsername = "\(posterAvatar?[0].user.avatarTemplate ?? "")"
+                    self?.topicViewModels.append(TopicCellViewModel(topic: topic))
+                }
                 self?.viewDelegate?.topicsFetched()
             case .failure:
                 self?.viewDelegate?.errorFetchingTopics()

@@ -31,13 +31,6 @@ class TopicCell: UITableViewCell {
         dateLabel.textColor = UIColor.black
     }
     
-//    var userViewModels: UserCellViewModel? {
-//        didSet {
-//            guard let userViewModels = userViewModels else { return }
-//            print("\(userViewModels.user.avatarTemplate)")
-//        }
-//    }
-    
     var viewModel: TopicCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
@@ -55,6 +48,7 @@ class TopicCell: UITableViewCell {
             dateFormatter.dateFormat = outputFormat
             let outputStringDate = dateFormatter.string(from: date)
             dateLabel.text = outputStringDate
+            userImage.image = viewModel.lastPosterImage
         }
     }
 }

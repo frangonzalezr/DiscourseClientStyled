@@ -24,9 +24,8 @@ class TopicCellViewModel {
         self.topic = topic
         textLabelText = topic.title
         subTitletextLabelText = topic.slug
-        
         var imageStringURL = "https://mdiscourse.keepcoding.io"
-//        imageStringURL.append(user.avatarTemplate.replacingOccurrences(of: "{size}", with: "100"))
+        imageStringURL.append(topic.lastPosterUsername.replacingOccurrences(of: "{size}", with: "100"))
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             if let url = URL(string: imageStringURL), let data = try? Data(contentsOf: url) {
                 self?.lastPosterImage = UIImage(data: data)

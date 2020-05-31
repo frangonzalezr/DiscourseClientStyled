@@ -22,7 +22,7 @@ struct TopicList: Codable {
 
     let perPage: Int
 
-    let topics: [Topic]
+    var topics: [Topic]
 
 
 
@@ -109,7 +109,7 @@ struct Topic: Codable {
 
     let archetype: String
 
-    let lastPosterUsername: String
+    var lastPosterUsername: String
 
     let categoryID: Int
 
